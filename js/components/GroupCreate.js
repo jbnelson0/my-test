@@ -1,18 +1,23 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet, Button, Alert } from 'react-native';
+import { View, Text, StyleSheet, TextInput, Alert, Dimensions } from 'react-native';
 
 export default class GroupCreate extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = { text:'' }
+  }
 	_onPress() {
 		Alert.alert('You Pressed me')
+    console.log('pressed')
 	}
 	render() {
+    const width = Dimensions.get('window').width;
 		return (<View style={styles.container}>
-        <View style={styles.buttonContainer}>
-          <Button
-            onPress={this._onPress}
-            title="Press Me"
+          <TextInput 
+            style={{height: 40, borderColor: 'gray', borderWidth: 1, width: width}}
+            onChangeText={(text) => this.setState({text})}
+            value={this.state.text}
           />
-        </View>
         </View>
 		)
 	}
@@ -22,9 +27,8 @@ export default class GroupCreate extends React.Component {
 
 const styles = StyleSheet.create({
   container: {
-   justifyContent: 'center',
+    justifyContent: 'center',
+    borderColor: '#000000',
+    borderWidth: 1,
   },
-  buttonContainer: {
-    margin: 10
-  }
 })

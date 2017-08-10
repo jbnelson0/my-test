@@ -5,6 +5,7 @@ import { View, Text, Button, Alert, StyleSheet } from 'react-native';
 export default class MemberList extends Component {
 	_submit() {
 		Alert.alert('You Pushed me')
+    console.log('pushed')
 	}
 	render() {
 		return(
@@ -16,7 +17,7 @@ export default class MemberList extends Component {
           />
         </View>
         </View>
-			)
+		  )
 	}
 
 }
