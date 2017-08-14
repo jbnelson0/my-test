@@ -1,22 +1,20 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet, TextInput, Alert, Dimensions } from 'react-native';
+import { View, StyleSheet, TextInput, Alert, Dimensions, Keyboard } from 'react-native';
 
 export default class GroupCreate extends React.Component {
   constructor(props) {
     super(props)
     this.state = { text:'' }
   }
-	_onPress() {
-		Alert.alert('You Pressed me')
-    console.log('pressed')
-	}
 	render() {
     const width = Dimensions.get('window').width;
 		return (<View style={styles.container}>
           <TextInput 
             style={{height: 40, borderColor: 'gray', borderWidth: 1, width: width}}
             onChangeText={(text) => this.setState({text})}
+            onPress={(e)=> this._onPress(e).bind(this)}
             value={this.state.text}
+            onSubmitEditing={Keyboard.dismiss}
           />
         </View>
 		)
