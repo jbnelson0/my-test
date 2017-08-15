@@ -1,24 +1,27 @@
 import React, { Component } from 'react';
-import { View, Text, Button, Alert, StyleSheet } from 'react-native';
+import { View, Text, FlatList, StyleSheet } from 'react-native';
 
 
 export default class MemberList extends Component {
-	_submit() {
-		Alert.alert('You Pushed me')
-    console.log('pushed')
-	}
+  constructor(props){
+    super(props)
+    this.state= {
+      data: 'hi',
+      datas: 'hello'
+    } 
+  }
 	render() {
-		return(
+    const { data, datas } = this.state
+		return (
 		<View style={styles.container}>
-        <View style={styles.buttonContainer}>
-          <Button
-            onPress={this._submit}
-            title="Push Me"
+          <FlatList
+            style={styles.buttonContainer}
+            data={[{key: data}, {key: datas}]}
+            renderItem={({item}) => <Text>{item.key}</Text>}
           />
         </View>
-        </View>
 		  )
-	}
+    }
 
 }
 

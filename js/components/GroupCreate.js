@@ -4,7 +4,10 @@ import { View, StyleSheet, TextInput, Alert, Dimensions, Keyboard } from 'react-
 export default class GroupCreate extends React.Component {
   constructor(props) {
     super(props)
-    this.state = { text:'' }
+    this.state = { 
+      text:'',
+      submit: '', 
+    }
   }
 	render() {
     const width = Dimensions.get('window').width;
@@ -12,7 +15,6 @@ export default class GroupCreate extends React.Component {
           <TextInput 
             style={{height: 40, borderColor: 'gray', borderWidth: 1, width: width}}
             onChangeText={(text) => this.setState({text})}
-            onPress={(e)=> this._onPress(e).bind(this)}
             value={this.state.text}
             onSubmitEditing={Keyboard.dismiss}
           />
@@ -21,7 +23,6 @@ export default class GroupCreate extends React.Component {
 	}
 
 }
-
 
 const styles = StyleSheet.create({
   container: {
